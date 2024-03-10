@@ -1,0 +1,1020 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.3252207817019902 0.10822666235963972 0.9394245220897945 2.4866701631535832
+  position 1.3660013108331412 -1.0509377256359738 1.7172674175925502
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 10 10
+}
+Robot {
+  translation 0 0 0.4
+  children [
+    Shape {
+      appearance DEF base_link_material PBRAppearance {
+        baseColor 0.75294 0.75294 0.75294
+        roughness 1
+        metalness 0
+      }
+      geometry DEF base_link Mesh {
+        url [
+          "D:/Program/LivelybotCode/livelybot_webots/meshes/base_link.STL"
+        ]
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor 0 -0.075 0
+      }
+      device [
+        RotationalMotor {
+          name "r_hip_yaw_joint"
+          maxVelocity 21
+          minPosition -3.14
+          maxPosition 3.14
+          maxTorque 21
+        }
+        PositionSensor {
+          name "r_hip_yaw_joint_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation 0 -0.075 0
+        children [
+          Shape {
+            appearance DEF r_hip_yaw_link_material PBRAppearance {
+              baseColor 0.75294 0.75294 0.75294
+              roughness 1
+              metalness 0
+            }
+            geometry DEF r_hip_yaw_link Mesh {
+              url [
+                "D:/Program/LivelybotCode/livelybot_webots/meshes/r_hip_yaw_link.STL"
+              ]
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              anchor -0.037 0 -0.049
+            }
+            device [
+              RotationalMotor {
+                name "r_hip_roll_joint"
+                maxVelocity 21
+                minPosition -3.14
+                maxPosition 3.14
+                maxTorque 21
+              }
+              PositionSensor {
+                name "r_hip_roll_joint_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation -0.037 0 -0.049
+              rotation 1 0 0 0
+              children [
+                Shape {
+                  appearance DEF r_hip_roll_link_material PBRAppearance {
+                    baseColor 0.75294 0.75294 0.75294
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry DEF r_hip_roll_link Mesh {
+                    url [
+                      "D:/Program/LivelybotCode/livelybot_webots/meshes/r_hip_roll_link.STL"
+                    ]
+                  }
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0 1 0
+                    anchor 0.039 0 0
+                  }
+                  device [
+                    RotationalMotor {
+                      name "r_thigh_joint"
+                      maxVelocity 21
+                      minPosition -3.14
+                      maxPosition 3.14
+                      maxTorque 21
+                    }
+                    PositionSensor {
+                      name "r_thigh_joint_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0.039 0 0
+                    rotation 0 1 0 0
+                    children [
+                      Shape {
+                        appearance DEF r_thigh_link_material PBRAppearance {
+                          baseColor 0.75294 0.75294 0.75294
+                          roughness 1
+                          metalness 0
+                        }
+                        geometry DEF r_thigh_link Mesh {
+                          url [
+                            "D:/Program/LivelybotCode/livelybot_webots/meshes/r_thigh_link.STL"
+                          ]
+                        }
+                      }
+                      HingeJoint {
+                        jointParameters HingeJointParameters {
+                          axis 0 1 0
+                          anchor 0.011329 0 -0.14915
+                        }
+                        device [
+                          RotationalMotor {
+                            name "r_calf_joint"
+                            maxVelocity 21
+                            minPosition -3.14
+                            maxPosition 3.14
+                            maxTorque 21
+                          }
+                          PositionSensor {
+                            name "r_calf_joint_sensor"
+                          }
+                        ]
+                        endPoint Solid {
+                          translation 0.011329 0 -0.14915
+                          rotation 0 1 0 0
+                          children [
+                            Shape {
+                              appearance DEF r_calf_link_material PBRAppearance {
+                                baseColor 0.75294 0.75294 0.75294
+                                roughness 1
+                                metalness 0
+                              }
+                              geometry DEF r_calf_link Mesh {
+                                url [
+                                  "D:/Program/LivelybotCode/livelybot_webots/meshes/r_calf_link.STL"
+                                ]
+                              }
+                            }
+                            HingeJoint {
+                              jointParameters HingeJointParameters {
+                                axis 0 1 0
+                                anchor 0 0 -0.16
+                              }
+                              device [
+                                RotationalMotor {
+                                  name "r_ankle_pitch_joint"
+                                  maxVelocity 21
+                                  minPosition -3.14
+                                  maxPosition 3.14
+                                  maxTorque 21
+                                }
+                                PositionSensor {
+                                  name "r_ankle_pitch_joint_sensor"
+                                }
+                              ]
+                              endPoint Solid {
+                                translation 0 0 -0.16
+                                rotation 0 1 0 0
+                                children [
+                                  Shape {
+                                    appearance DEF r_ankle_pitch_link_material PBRAppearance {
+                                      baseColor 0.89804 0.91765 0.92941
+                                      roughness 1
+                                      metalness 0
+                                    }
+                                    geometry DEF r_ankle_pitch_link Mesh {
+                                      url [
+                                        "D:/Program/LivelybotCode/livelybot_webots/meshes/r_ankle_pitch_link.STL"
+                                      ]
+                                    }
+                                  }
+                                  HingeJoint {
+                                    jointParameters HingeJointParameters {
+                                      anchor 0 -0.000819 0
+                                    }
+                                    device [
+                                      RotationalMotor {
+                                        name "r_ankle_roll_joint"
+                                        maxVelocity 21
+                                        minPosition -3.14
+                                        maxPosition 3.14
+                                        maxTorque 21
+                                      }
+                                      PositionSensor {
+                                        name "r_ankle_roll_joint_sensor"
+                                      }
+                                    ]
+                                    endPoint Solid {
+                                      translation 0 -0.000819 0
+                                      rotation 1 0 0 0
+                                      children [
+                                        Shape {
+                                          appearance DEF r_ankle_roll_link_material PBRAppearance {
+                                            baseColor 0.75294 0.75294 0.75294
+                                            roughness 1
+                                            metalness 0
+                                          }
+                                          geometry DEF r_ankle_roll_link Mesh {
+                                            url [
+                                              "D:/Program/LivelybotCode/livelybot_webots/meshes/r_ankle_roll_link.STL"
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                      name "r_ankle_roll_link"
+                                      boundingObject USE r_ankle_roll_link
+                                      physics Physics {
+                                        density -1
+                                        mass 0.180326
+                                        centerOfMass [
+                                          0.024404 -2e-06 -0.018717
+                                        ]
+                                        inertiaMatrix [
+                                          0.0001439 0.0005162 0.0005037
+                                          0 -0.0001053 0
+                                        ]
+                                      }
+                                    }
+                                  }
+                                ]
+                                name "r_ankle_pitch_link"
+                                boundingObject USE r_ankle_pitch_link
+                                physics Physics {
+                                  density -1
+                                  mass 0.008865
+                                  centerOfMass [
+                                    0 -0.000819 0
+                                  ]
+                                  inertiaMatrix [
+                                    2e-07 1e-06 1e-06
+                                    0 0 0
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                          name "r_calf_link"
+                          boundingObject USE r_calf_link
+                          physics Physics {
+                            density -1
+                            mass 0.504394
+                            centerOfMass [
+                              0.004082 -0.000763 -0.072855
+                            ]
+                            inertiaMatrix [
+                              0.0034667 0.0035012 0.0001659
+                              -1.4e-06 -0.0001407 2.43e-05
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                    name "r_thigh_link"
+                    boundingObject USE r_thigh_link
+                    physics Physics {
+                      density -1
+                      mass 0.10988
+                      centerOfMass [
+                        0.0043 0.0024 -0.0565
+                      ]
+                      inertiaMatrix [
+                        0.0006751 0.0006779 3.66e-05
+                        4e-07 -4.96e-05 -3e-07
+                      ]
+                    }
+                  }
+                }
+              ]
+              name "r_hip_roll_link"
+              boundingObject USE r_hip_roll_link
+              physics Physics {
+                density -1
+                mass 0.7306
+                centerOfMass [
+                  0.0366 0.0002 0.0004
+                ]
+                inertiaMatrix [
+                  0.0014 0.0003 0.0014
+                  0 0 0
+                ]
+              }
+            }
+          }
+        ]
+        name "r_hip_yaw_link"
+        boundingObject USE r_hip_yaw_link
+        physics Physics {
+          density -1
+          mass 0.3593
+          centerOfMass [
+            -0.0594 0 -0.0436
+          ]
+          inertiaMatrix [
+            0.0009 0.0022 0.0015
+            0 0.001 0
+          ]
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 0 1
+        anchor 0 0.075 0
+      }
+      device [
+        RotationalMotor {
+          name "l_hip_yaw_joint"
+          maxVelocity 21
+          minPosition -3.14
+          maxPosition 3.14
+          maxTorque 21
+        }
+        PositionSensor {
+          name "l_hip_yaw_joint_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation 0 0.075 0
+        children [
+          Shape {
+            appearance DEF l_hip_yaw_link_material PBRAppearance {
+              baseColor 0.75294 0.75294 0.75294
+              roughness 1
+              metalness 0
+            }
+            geometry DEF l_hip_yaw_link Mesh {
+              url [
+                "D:/Program/LivelybotCode/livelybot_webots/meshes/l_hip_yaw_link.STL"
+              ]
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              anchor -0.037 0 -0.049
+            }
+            device [
+              RotationalMotor {
+                name "l_hip_roll_joint"
+                maxVelocity 21
+                minPosition -3.14
+                maxPosition 3.14
+                maxTorque 21
+              }
+              PositionSensor {
+                name "l_hip_roll_joint_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation -0.037 0 -0.049
+              rotation 1 0 0 0
+              children [
+                Shape {
+                  appearance DEF l_hip_roll_link_material PBRAppearance {
+                    baseColor 0.75294 0.75294 0.75294
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry DEF l_hip_roll_link Mesh {
+                    url [
+                      "D:/Program/LivelybotCode/livelybot_webots/meshes/l_hip_roll_link.STL"
+                    ]
+                  }
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0 1 0
+                    anchor 0.039 0 0
+                  }
+                  device [
+                    RotationalMotor {
+                      name "l_thigh_joint"
+                      maxVelocity 21
+                      minPosition -3.14
+                      maxPosition 3.14
+                      maxTorque 21
+                    }
+                    PositionSensor {
+                      name "l_thigh_joint_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation 0.039 0 0
+                    rotation 0 1 0 0
+                    children [
+                      Shape {
+                        appearance DEF l_thigh_link_material PBRAppearance {
+                          baseColor 0.75294 0.75294 0.75294
+                          roughness 1
+                          metalness 0
+                        }
+                        geometry DEF l_thigh_link Mesh {
+                          url [
+                            "D:/Program/LivelybotCode/livelybot_webots/meshes/l_thigh_link.STL"
+                          ]
+                        }
+                      }
+                      HingeJoint {
+                        jointParameters HingeJointParameters {
+                          axis 0 1 0
+                          anchor 0.012 0 -0.14952
+                        }
+                        device [
+                          RotationalMotor {
+                            name "l_calf_link"
+                            maxVelocity 21
+                            minPosition -3.14
+                            maxPosition 3.14
+                            maxTorque 21
+                          }
+                          PositionSensor {
+                            name "l_calf_link_sensor"
+                          }
+                        ]
+                        endPoint Solid {
+                          translation 0.012 0 -0.14952
+                          rotation 0 1 0 0
+                          children [
+                            Shape {
+                              appearance DEF l_calf_link_material PBRAppearance {
+                                baseColor 0.75294 0.75294 0.75294
+                                roughness 1
+                                metalness 0
+                              }
+                              geometry DEF l_calf_link Mesh {
+                                url [
+                                  "D:/Program/LivelybotCode/livelybot_webots/meshes/l_calf_link.STL"
+                                ]
+                              }
+                            }
+                            HingeJoint {
+                              jointParameters HingeJointParameters {
+                                axis 0 1 0
+                                anchor 0 0 -0.16
+                              }
+                              device [
+                                RotationalMotor {
+                                  name "l_ankle_pitch_joint"
+                                  maxVelocity 21
+                                  minPosition -3.14
+                                  maxPosition 3.14
+                                  maxTorque 21
+                                }
+                                PositionSensor {
+                                  name "l_ankle_pitch_joint_sensor"
+                                }
+                              ]
+                              endPoint Solid {
+                                translation 0 0 -0.16
+                                rotation 0 1 0 0
+                                children [
+                                  Shape {
+                                    appearance DEF l_ankle_pitch_link_material PBRAppearance {
+                                      baseColor 0.89804 0.91765 0.92941
+                                      roughness 1
+                                      metalness 0
+                                    }
+                                    geometry DEF l_ankle_pitch_link Mesh {
+                                      url [
+                                        "D:/Program/LivelybotCode/livelybot_webots/meshes/l_ankle_pitch_link.STL"
+                                      ]
+                                    }
+                                  }
+                                  HingeJoint {
+                                    jointParameters HingeJointParameters {
+                                    }
+                                    device [
+                                      RotationalMotor {
+                                        name "l_ankle_roll_joint"
+                                        maxVelocity 21
+                                        minPosition -3.14
+                                        maxPosition 3.14
+                                        maxTorque 21
+                                      }
+                                      PositionSensor {
+                                        name "l_ankle_roll_joint_sensor"
+                                      }
+                                    ]
+                                    endPoint Solid {
+                                      rotation 1 0 0 0
+                                      children [
+                                        Shape {
+                                          appearance DEF l_ankle_roll_link_material PBRAppearance {
+                                            baseColor 0.75294 0.75294 0.75294
+                                            roughness 1
+                                            metalness 0
+                                          }
+                                          geometry DEF l_ankle_roll_link Mesh {
+                                            url [
+                                              "D:/Program/LivelybotCode/livelybot_webots/meshes/l_ankle_roll_link.STL"
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                      name "l_ankle_roll_link"
+                                      boundingObject USE l_ankle_roll_link
+                                      physics Physics {
+                                        density -1
+                                        mass 0.174974
+                                        centerOfMass [
+                                          0.023711 0 -0.018569
+                                        ]
+                                        inertiaMatrix [
+                                          0.0001392 0.0004925 0.0004813
+                                          0 -9.94e-05 0
+                                        ]
+                                      }
+                                    }
+                                  }
+                                ]
+                                name "l_ankle_pitch_link"
+                                boundingObject USE l_ankle_pitch_link
+                                physics Physics {
+                                  density -1
+                                  mass 0.008865
+                                  centerOfMass [
+                                    0 0 0
+                                  ]
+                                  inertiaMatrix [
+                                    2e-07 1e-06 1e-06
+                                    0 0 0
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                          name "l_calf_link"
+                          boundingObject USE l_calf_link
+                          physics Physics {
+                            density -1
+                            mass 0.504394
+                            centerOfMass [
+                              0.004082 1e-06 -0.072855
+                            ]
+                            inertiaMatrix [
+                              0.0034664 0.0035012 0.0001656
+                              0 -0.0001407 5.6e-06
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                    name "l_thigh_link"
+                    boundingObject USE l_thigh_link
+                    physics Physics {
+                      density -1
+                      mass 0.109881
+                      centerOfMass [
+                        0.004546 -0.002386 -0.056645
+                      ]
+                      inertiaMatrix [
+                        0.0006773 0.0006804 3.69e-05
+                        0 -5.17e-05 1e-07
+                      ]
+                    }
+                  }
+                }
+              ]
+              name "l_hip_roll_link"
+              boundingObject USE l_hip_roll_link
+              physics Physics {
+                density -1
+                mass 0.73062
+                centerOfMass [
+                  0.036392 0.000835 0.000407
+                ]
+                inertiaMatrix [
+                  0.0014025 0.0012475 0.0024131
+                  2.05e-05 5.7e-06 2e-07
+                ]
+              }
+            }
+          }
+        ]
+        name "l_hip_yaw_link"
+        boundingObject USE l_hip_yaw_link
+        physics Physics {
+          density -1
+          mass 0.359322
+          centerOfMass [
+            -0.059371 0 -0.043649
+          ]
+          inertiaMatrix [
+            0.0008659 0.0022471 0.0014877
+            0 0.0010182 0
+          ]
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -0.00238 -0.0855 0.2045
+      }
+      device [
+        RotationalMotor {
+          name "r_shoulder_pitch_joint"
+          maxVelocity 21
+          minPosition -3.14
+          maxPosition 3.14
+          maxTorque 21
+        }
+        PositionSensor {
+          name "r_shoulder_pitch_joint_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation -0.00238 -0.0855 0.2045
+        rotation 0 1 0 0
+        children [
+          Shape {
+            appearance DEF r_shoulder_pitch_link_material PBRAppearance {
+              baseColor 0.75294 0.75294 0.75294
+              roughness 1
+              metalness 0
+            }
+            geometry DEF r_shoulder_pitch_link Mesh {
+              url [
+                "D:/Program/LivelybotCode/livelybot_webots/meshes/r_shoulder_pitch_link.STL"
+              ]
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              anchor 0.024 -0.028574 0
+            }
+            device [
+              RotationalMotor {
+                name "r_shoulder_roll_joint"
+                maxVelocity 21
+                minPosition -3.14
+                maxPosition 3.14
+                maxTorque 21
+              }
+              PositionSensor {
+                name "r_shoulder_roll_joint_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.024 -0.028574 0
+              rotation 1 0 0 0
+              children [
+                Shape {
+                  appearance DEF r_shoulder_roll_link_material PBRAppearance {
+                    baseColor 0.75294 0.75294 0.75294
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry DEF r_shoulder_roll_link Mesh {
+                    url [
+                      "D:/Program/LivelybotCode/livelybot_webots/meshes/r_shoulder_roll_link.STL"
+                    ]
+                  }
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0 0 1
+                    anchor -0.024 0 -0.071
+                  }
+                  device [
+                    RotationalMotor {
+                      name "r_shoulder_yaw_joint"
+                      maxVelocity 21
+                      minPosition -3.14
+                      maxPosition 3.14
+                      maxTorque 21
+                    }
+                    PositionSensor {
+                      name "r_shoulder_yaw_joint_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation -0.024 0 -0.071
+                    children [
+                      Shape {
+                        appearance DEF r_shoulder_yaw_link_material PBRAppearance {
+                          baseColor 0.75294 0.75294 0.75294
+                          roughness 1
+                          metalness 0
+                        }
+                        geometry DEF r_shoulder_yaw_link Mesh {
+                          url [
+                            "D:/Program/LivelybotCode/livelybot_webots/meshes/r_shoulder_yaw_link.STL"
+                          ]
+                        }
+                      }
+                      HingeJoint {
+                        jointParameters HingeJointParameters {
+                          axis 0 1 0
+                          anchor 0.010624 -0.024 -0.094
+                        }
+                        device [
+                          RotationalMotor {
+                            name "r_elbow_joint"
+                            maxVelocity 21
+                            minPosition -3.14
+                            maxPosition 3.14
+                            maxTorque 21
+                          }
+                          PositionSensor {
+                            name "r_elbow_joint_sensor"
+                          }
+                        ]
+                        endPoint Solid {
+                          translation 0.010624 -0.024 -0.094
+                          rotation 0 1 0 0
+                          children [
+                            Shape {
+                              appearance DEF r_elbow_link_material PBRAppearance {
+                                baseColor 0.75294 0.75294 0.75294
+                                roughness 1
+                                metalness 0
+                              }
+                              geometry DEF r_elbow_link Mesh {
+                                url [
+                                  "D:/Program/LivelybotCode/livelybot_webots/meshes/r_elbow_link.STL"
+                                ]
+                              }
+                            }
+                          ]
+                          name "r_elbow_link"
+                          boundingObject USE r_elbow_link
+                          physics Physics {
+                            density -1
+                            mass 0.049069
+                            centerOfMass [
+                              0.029436 0.009374 0
+                            ]
+                            inertiaMatrix [
+                              1.46e-05 0.0001645 0.0001744
+                              3.39e-05 0 0
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                    name "r_shoulder_yaw_link"
+                    boundingObject USE r_shoulder_yaw_link
+                    physics Physics {
+                      density -1
+                      mass 0.2397
+                      centerOfMass [
+                        0 -0.001471 -0.082537
+                      ]
+                      inertiaMatrix [
+                        0.0018366 0.0018331 5.73e-05
+                        0 0 3.06e-05
+                      ]
+                    }
+                  }
+                }
+              ]
+              name "r_shoulder_roll_link"
+              boundingObject USE r_shoulder_roll_link
+              physics Physics {
+                density -1
+                mass 0.254925
+                centerOfMass [
+                  -0.015421 0 -0.042169
+                ]
+                inertiaMatrix [
+                  0.0005765 0.0006886 0.0001687
+                  0 0.0002024 0
+                ]
+              }
+            }
+          }
+        ]
+        name "r_shoulder_pitch_link"
+        boundingObject USE r_shoulder_pitch_link
+        physics Physics {
+          density -1
+          mass 0.212967
+          centerOfMass [
+            0.002092 -0.025196 0
+          ]
+          inertiaMatrix [
+            0.000206 5.86e-05 0.0002099
+            -8.3e-06 0 0
+          ]
+        }
+      }
+    }
+    HingeJoint {
+      jointParameters HingeJointParameters {
+        axis 0 1 0
+        anchor -0.00238 0.0855 0.2045
+      }
+      device [
+        RotationalMotor {
+          name "l_shoulder_pitch_joint"
+          maxVelocity 21
+          minPosition -3.14
+          maxPosition 3.14
+          maxTorque 21
+        }
+        PositionSensor {
+          name "l_shoulder_pitch_joint_sensor"
+        }
+      ]
+      endPoint Solid {
+        translation -0.00238 0.0855 0.2045
+        rotation 1 0 0 1.570796
+        children [
+          Shape {
+            appearance DEF l_shoulder_pitch_link_material PBRAppearance {
+              baseColor 0.75294 0.75294 0.75294
+              roughness 1
+              metalness 0
+            }
+            geometry DEF l_shoulder_pitch_link Mesh {
+              url [
+                "D:/Program/LivelybotCode/livelybot_webots/meshes/l_shoulder_pitch_link.STL"
+              ]
+            }
+          }
+          HingeJoint {
+            jointParameters HingeJointParameters {
+              anchor 0.024 0 -0.032
+            }
+            device [
+              RotationalMotor {
+                name "l_shoulder_roll_joint"
+                maxVelocity 21
+                minPosition -3.14
+                maxPosition 3.14
+                maxTorque 21
+              }
+              PositionSensor {
+                name "l_shoulder_roll_joint_sensor"
+              }
+            ]
+            endPoint Solid {
+              translation 0.024 0 -0.032
+              rotation -1 0 0 1.5708
+              children [
+                Shape {
+                  appearance DEF l_shoulder_roll_link_material PBRAppearance {
+                    baseColor 0.75294 0.75294 0.75294
+                    roughness 1
+                    metalness 0
+                  }
+                  geometry DEF l_shoulder_roll_link Mesh {
+                    url [
+                      "D:/Program/LivelybotCode/livelybot_webots/meshes/l_shoulder_roll_link.STL"
+                    ]
+                  }
+                }
+                HingeJoint {
+                  jointParameters HingeJointParameters {
+                    axis 0 0 1
+                    anchor -0.024 0 -0.071
+                  }
+                  device [
+                    RotationalMotor {
+                      name "l_shoulder_yaw_joint"
+                      maxVelocity 21
+                      minPosition -3.14
+                      maxPosition 3.14
+                      maxTorque 21
+                    }
+                    PositionSensor {
+                      name "l_shoulder_yaw_joint_sensor"
+                    }
+                  ]
+                  endPoint Solid {
+                    translation -0.024 0 -0.071
+                    children [
+                      Shape {
+                        appearance DEF l_shoulder_yaw_link_material PBRAppearance {
+                          baseColor 0.75294 0.75294 0.75294
+                          roughness 1
+                          metalness 0
+                        }
+                        geometry DEF l_shoulder_yaw_link Mesh {
+                          url [
+                            "D:/Program/LivelybotCode/livelybot_webots/meshes/l_shoulder_yaw_link.STL"
+                          ]
+                        }
+                      }
+                      HingeJoint {
+                        jointParameters HingeJointParameters {
+                          axis 0 1 0
+                          anchor 0 0.024 -0.091483
+                        }
+                        device [
+                          RotationalMotor {
+                            name "l_elbow_joint"
+                            maxVelocity 21
+                            minPosition -3.14
+                            maxPosition 3.14
+                            maxTorque 21
+                          }
+                          PositionSensor {
+                            name "l_elbow_joint_sensor"
+                          }
+                        ]
+                        endPoint Solid {
+                          translation 0 0.024 -0.091483
+                          rotation 0 1 0 0
+                          children [
+                            Shape {
+                              appearance DEF l_elbow_link_material PBRAppearance {
+                                baseColor 0.75294 0.75294 0.75294
+                                roughness 1
+                                metalness 0
+                              }
+                              geometry DEF l_elbow_link Mesh {
+                                url [
+                                  "D:/Program/LivelybotCode/livelybot_webots/meshes/l_elbow_link.STL"
+                                ]
+                              }
+                            }
+                          ]
+                          name "l_elbow_link"
+                          boundingObject USE l_elbow_link
+                          physics Physics {
+                            density -1
+                            mass 0.049069
+                            centerOfMass [
+                              0.04006 -0.009374 0
+                            ]
+                            inertiaMatrix [
+                              1.46e-05 0.0002007 0.0002106
+                              -3.88e-05 0 0
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                    name "l_shoulder_yaw_link"
+                    boundingObject USE l_shoulder_yaw_link
+                    physics Physics {
+                      density -1
+                      mass 0.2397
+                      centerOfMass [
+                        0 0.001471 -0.08002
+                      ]
+                      inertiaMatrix [
+                        0.0017385 0.001735 5.73e-05
+                        0 0 -2.98e-05
+                      ]
+                    }
+                  }
+                }
+              ]
+              name "l_shoulder_roll_link"
+              boundingObject USE l_shoulder_roll_link
+              physics Physics {
+                density -1
+                mass 0.254925
+                centerOfMass [
+                  -0.015421 0 -0.042169
+                ]
+                inertiaMatrix [
+                  0.0005765 0.0006886 0.0001687
+                  0 0.0002024 0
+                ]
+              }
+            }
+          }
+        ]
+        name "l_shoulder_pitch_link"
+        boundingObject USE l_shoulder_pitch_link
+        physics Physics {
+          density -1
+          mass 0.20853
+          centerOfMass [
+            0.001691 0 -0.028988
+          ]
+          inertiaMatrix [
+            0.0002429 0.0002465 5.51e-05
+            0 -8.8e-06 0
+          ]
+        }
+      }
+    }
+  ]
+  name "ModelH"
+  boundingObject USE base_link
+  physics Physics {
+    density -1
+    mass 2.503
+    centerOfMass [
+      0.0096 0.0005 0.1157
+    ]
+    inertiaMatrix [
+      0.0584 0.0536 0.0099
+      0 0.0035 0.0002
+    ]
+  }
+  battery [
+    100
+  ]
+}
